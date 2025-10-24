@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { createUserData, getUserData } from '../controller/user.controller.js';
-import { authentication } from '../middleware/auth';
+import { authentication } from '../middleware/auth.js';
 
 
 
