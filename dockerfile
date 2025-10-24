@@ -4,14 +4,14 @@ FROM node:22-alpine
 # Set working directory inside container
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# Copy package.json and install dependencies (skip postinstall)
 COPY package*.json ./
-RUN npm install
+RUN npm install --ignore-scripts
 
 # Copy all project files (including prisma folder)
 COPY . .
 
-# Generate Prisma client
+# Now manually generate Prisma client
 RUN npx prisma generate
 
 # Build TypeScript
